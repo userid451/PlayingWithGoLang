@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Parser</title>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+<style type="text/css">
+        textarea#json-input {
+          width: 100%;
+          height: 200px;
+        }
+        .container { margin-top:150px;}
+        pre#json-renderer {
+          border: 1px solid #aaa;
+          padding: 0.5em 1.5em;
+          background-color:#fafafa;
+        }
+</style>
+</head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="/">
+        <img src="./parser_sun.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Parser
+      </a>
+    </nav>
+
+
+
+      <div class="container">
+        
+          
+        
+            <h1>Online tool to convert your Excel data to CSV (I hope).</h1>
+
+
+           
+        
+      </div>
+    
+
+
+
+
+
+      
+      <div class="container">
+        <form enctype="multipart/form-data" action="/" method="post" >
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                  <input type="file" name="uploadfile" class="custom-file-input" id="inputGroupFile02"/>
+                  <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                </div>
+                <div class="input-group-append">
+                  <input class="input-group-text" id="inputGroupFileAddon02" type="submit"/>
+                </div>
+            </div>
+        </form>
+     
+  </body>
+
+  
+  <script type="text/javascript">
+      // for upload function
+      $('.custom-file-input').on('change', function() { 
+           let fileName = $(this).val().split('\\').pop(); 
+           $(this).next('.custom-file-label').addClass("selected").html(fileName);
+           // hide submit button if no file chosen 
+           if ($('.custom-file-input').get(0).files.length === 0){
+              console.log("No files selected.");
+              $("#inputGroupFileAddon02").hide();
+           }else{
+              console.log("Files has been selected.")
+              $("#inputGroupFileAddon02").show();
+          }
+      });
+      $("#inputGroupFileAddon02").hide();
+      
+
+  </script>
+</html>
